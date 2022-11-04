@@ -11,8 +11,9 @@ public class 玩家腳本 : MonoBehaviour
     private Rigidbody2D rb;
     private BoxCollider2D box2D;
     private Animator ani;
-    private bool isGround;
+    public bool isGround;
     private bool CanDoubleJump;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -48,10 +49,37 @@ public class 玩家腳本 : MonoBehaviour
     private void 檢測地板()
     {
         print(rb.velocity.y);
-        isGround = box2D.IsTouchingLayers(LayerMask.GetMask("地板"));
+        isGround = box2D.IsTouchingLayers(LayerMask.GetMask("地板"))||
+                   box2D.IsTouchingLayers(LayerMask.GetMask("平台"));
         ani.SetBool("跳躍", !isGround&&rb.velocity.y>0);
         ani.SetBool("墮落", !isGround&&rb.velocity.y<0);
     }
+    public GameObject 父物件;
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.layer == LayerMask.NameToLayer("地板")|| 
+    //        collision.gameObject.layer == LayerMask.NameToLayer("地板"))
+    //    {
+    //        if (transform.root.tag=="Player")
+    //        {
+    //            父物件 = collision.gameObject;
+    //            transform.SetParent(父物件.transform);
+    //        }
+    //    }
+                      
+    //}
+    //private void OnTriggerExit2D(Collider collision)
+    //{
+    //    if (collision.gameObject.layer == LayerMask.NameToLayer("地板") ||
+    //        collision.gameObject.layer == LayerMask.NameToLayer("地板"))
+    //    {
+    //        if (transform.root.tag == "")
+    //        {
+    //            父物件 = collision.gameObject;
+    //            transform.SetParent(父物件.transform);
+    //        }
+    //    }
+    //}
 
     private void 鏡像()
     {

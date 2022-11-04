@@ -15,8 +15,8 @@ TagManager:
   - "\u5730\u677F"
   - "\u602A\u7269"
   - Player
-  - 
-  - 
+  - "\u9677\u9631"
+  - "\u5E73\u53F0"
   - 
   - 
   - 
@@ -42,6 +42,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: BackGround
+    uniqueID: 1005966695
+    locked: 0
   - name: Ground
     uniqueID: 2776392641
     locked: 0
@@ -50,7 +53,4 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 751351947
-    locked: 0
-  - name: BackGround
-    uniqueID: 1005966695
     locked: 0

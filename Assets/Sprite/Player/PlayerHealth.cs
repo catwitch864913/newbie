@@ -11,6 +11,9 @@ public class PlayerHealth : MonoBehaviour
     public Rigidbody2D rb;
     private Renderer myRender;
     private Animator ani;
+    private ScreenFlash sf;
+    private PolygonCollider2D pol;
+    public float hitBoxCdTime;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +21,8 @@ public class PlayerHealth : MonoBehaviour
         ani = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         health=HealthBar.HpMax;
-       
+        sf = GetComponent<ScreenFlash>();
+        pol = GetComponent<PolygonCollider2D>();
     }
 
     // Update is called once per frame
@@ -28,6 +32,7 @@ public class PlayerHealth : MonoBehaviour
     }
     public void DamegePlayer(int damage)
     {
+        sf.FlashScreen();
         health -= damage;
         if (health < 0)
         {
@@ -37,12 +42,20 @@ public class PlayerHealth : MonoBehaviour
         
         if (health <= 0)
         {
+            GameController.isGameAlive = false;
             ani.SetTrigger("¦º¤`");
             gameObject.GetComponent<ª±®a¸}¥»>().enabled = false;
             rb.velocity = new Vector2(0, rb.velocity.y);
             Invoke("KillPlayer", dieTime);
         }
         BlinkPlayer(Blinks,time);
+        pol.enabled = false;
+        StartCoroutine(ShowPlayerHitBox());
+    }
+    IEnumerator ShowPlayerHitBox()
+    {
+        yield return new WaitForSeconds(hitBoxCdTime);
+        pol.enabled = true;
     }
     void KillPlayer()
     {

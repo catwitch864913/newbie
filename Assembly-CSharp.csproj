@@ -58,15 +58,18 @@
   <ItemGroup>
     <Compile Include="Assets\Sprite\Camera\GameController.cs" />
     <Compile Include="Assets\Sprite\Camera\CameraShake.cs" />
+    <Compile Include="Assets\Sprite\UI\血瓶區.cs" />
     <Compile Include="Assets\Sprite\enemy\怪物.cs" />
     <Compile Include="Assets\Sprite\Player\玩家腳本.cs" />
     <Compile Include="Assets\Sprite\effects\血.cs" />
     <Compile Include="Assets\Sprite\Camera\CameraFollows.cs" />
+    <Compile Include="Assets\Sprite\Player\HealthBar.cs" />
     <Compile Include="Assets\Sprite\Player\PlayerHealth.cs" />
     <Compile Include="Assets\Sprite\Player\玩家攻擊.cs" />
     <Compile Include="Assets\Sprite\enemy\蝙蝠.cs" />
-    <Compile Include="Assets\Sprite\Player\HealthBar.cs" />
-    <Compile Include="Assets\Sprite\UI\血瓶區.cs" />
+    <Compile Include="Assets\Sprite\UI\ScreenFlash.cs" />
+    <Compile Include="Assets\Sprite\場景\Spike.cs" />
+    <Compile Include="Assets\Sprite\Player\平台.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
